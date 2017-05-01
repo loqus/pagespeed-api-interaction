@@ -16,4 +16,4 @@ define("STRATEGY","desktop");
 define("FIELDS","formattedResults,id,invalidRules,kind,pageStats,responseCode,ruleGroups,screenshot,title,version");
 
 //generate your own key here: https://console.developers.google.com/apis/credentials
-define("GOOGLEAPIKEY","desktop");
+define("GOOGLEAPIKEY","");
