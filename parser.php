@@ -10,24 +10,33 @@ $guzzleclient = new \GuzzleHttp\Client([
 //Build the API url and request
 //https://www.googleapis.com/pagespeedonline/v2/runPagespeed?url=https%3A%2F%2Fwww.mobiele-telefoons.nl&strategy=desktop&fields=formattedResults%2Cid%2CinvalidRules%2Ckind%2CpageStats%2CresponseCode%2CruleGroups%2Cscreenshot%2Ctitle%2Cversion&key={YOUR_API_KEY}
 
+//change this to your url
 $urltocheck = "https://www.yourdomain.com";
 
 $psiurl = "https://www.googleapis.com/pagespeedonline/v2/runPagespeed?";
 
 $psivariables = array();
-$psivariables[] = "url=".$urltocheck;
-$psivariables[] = "filter_third_party_resources=".FILTER_THIRD_PARTY_RESOURCES;
-$psivariables[] = "strategy=".STRATEGY;
-$psivariables[] = "locale=".LOCALE;
-$psivariables[] = "screenshot=".SCREENSHOT;
-$psivariables[] = "fields=".FIELDS;
-$psivariables[] = "key=".APIKEY;
 
-$psiurl .= urlencode(implode("&",$psivariables));
+$psivariables[] = "url=".urlencode($urltocheck);
+$psivariables[] = "strategy=".urlencode(PSISTRATEGY);
+$psivariables[] = "locale=".urlencode(PSILOCALE);
+$psivariables[] = "fields=".urlencode(PSIFIELDS);
+$psivariables[] = "key=".urlencode(PSIAPIKEY);
+
+if(PSIFILTER_THIRD_PARTY_RESOURCES === true){
+	$psivariables[] = "filter_third_party_resources=true";
+}
+
+if(PSISCREENSHOT === true){
+    $psivariables[] = "screenshot=true";
+}
+
+$psiurl .= implode("&",$psivariables);
 
 //$res is in json format
 $res = $client->request('GET', $psiurl);
 
-$jsonobject = json_decode($res);
+$jsonobject = json_decode($res->getBody());
 
+//Do what you want with the results
 print_r($jsonobject);
