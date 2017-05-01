@@ -1,7 +1,5 @@
 {
    "require": {
-      "guzzlehttp/guzzle": "~6.2.3",
-      "emanueleminotto/simple-html-dom": "^1.5",
-      "fabpot/goutte": "^3.2.1"
+      "guzzlehttp/guzzle": "~6.2.3"
    }
 }
