@@ -8,7 +8,7 @@ $guzzleclient = new \GuzzleHttp\Client([
 ]);
 
 //Build the API url and request
-//https://www.googleapis.com/pagespeedonline/v2/runPagespeed?url=https%3A%2F%2Fwww.mobiele-telefoons.nl&strategy=desktop&fields=formattedResults%2Cid%2CinvalidRules%2Ckind%2CpageStats%2CresponseCode%2CruleGroups%2Cscreenshot%2Ctitle%2Cversion&key={YOUR_API_KEY}
+//https://www.googleapis.com/pagespeedonline/v2/runPagespeed?url=https%3A%2F%2Fwww.yourdomain.com&strategy=desktop&fields=formattedResults%2Cid%2CinvalidRules%2Ckind%2CpageStats%2CresponseCode%2CruleGroups%2Cscreenshot%2Ctitle%2Cversion&key={YOUR_API_KEY}
 
 //change this to your url
 $urltocheck = "https://www.yourdomain.com";
